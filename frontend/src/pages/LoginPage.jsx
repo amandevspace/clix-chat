@@ -32,11 +32,7 @@ const LoginPage = () => {
           <div className="backdrop-blur-2xl bg-white/[0.04] border border-white/10 shadow-2xl shadow-black/50 rounded-3xl p-8 sm:p-10 animate-fade-in-up">
             <div className="text-center mb-8">
               <div className="flex flex-col items-center gap-3 group">
-                <div
-                  className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500
-                  flex items-center justify-center shadow-lg shadow-violet-500/30
-                  group-hover:scale-110 group-hover:rotate-3 transition-all duration-300"
-                >
+                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center shadow-lg shadow-violet-500/30 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
                   <MessageSquare className="w-7 h-7 text-white" />
                 </div>
                 <h1 className="text-3xl font-bold tracking-tight mt-2 text-white">Welcome back</h1>
@@ -55,9 +51,7 @@ const LoginPage = () => {
                   </div>
                   <input
                     type="email"
-                    className="input w-full pl-10 h-12 rounded-xl bg-white/[0.03] border border-white/10 text-white
-                    placeholder-white/25 focus:border-violet-400/60 focus:bg-white/[0.06] focus:outline-none
-                    focus:ring-4 focus:ring-violet-500/10 transition-all duration-200"
+                    className="input w-full pl-10 h-12 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-white/25 focus:border-violet-400/60 focus:bg-white/[0.06] focus:outline-none focus:ring-4 focus:ring-violet-500/10 transition-all duration-200"
                     placeholder="you@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
@@ -75,17 +69,14 @@ const LoginPage = () => {
                   </div>
                   <input
                     type={showPassword ? "text" : "password"}
-                    className="input w-full pl-10 pr-11 h-12 rounded-xl bg-white/[0.03] border border-white/10 text-white
-                    placeholder-white/25 focus:border-violet-400/60 focus:bg-white/[0.06] focus:outline-none
-                    focus:ring-4 focus:ring-violet-500/10 transition-all duration-200"
+                    className="input w-full pl-10 pr-11 h-12 rounded-xl bg-white/[0.03] border border-white/10 text-white placeholder-white/25 focus:border-violet-400/60 focus:bg-white/[0.06] focus:outline-none focus:ring-4 focus:ring-violet-500/10 transition-all duration-200"
                     placeholder="••••••••"
                     value={formData.password}
                     onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                   />
                   <button
                     type="button"
-                    className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-white/35
-                    hover:text-violet-400 transition-colors"
+                    className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-white/35 hover:text-violet-400 transition-colors"
                     onClick={() => setShowPassword(!showPassword)}
                   >
                     {showPassword ? <EyeOff className="h-4.5 w-4.5" /> : <Eye className="h-4.5 w-4.5" />}
@@ -95,10 +86,7 @@ const LoginPage = () => {
 
               <button
                 type="submit"
-                className="btn w-full h-12 rounded-xl border-none text-white
-                bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-[length:200%_100%] bg-left
-                hover:bg-right hover:shadow-lg hover:shadow-violet-500/30 hover:-translate-y-0.5
-                active:translate-y-0 transition-all duration-500 mt-2"
+                className="btn w-full h-12 rounded-xl border-none text-white bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-[length:200%_100%] bg-left hover:bg-right hover:shadow-lg hover:shadow-violet-500/30 hover:-translate-y-0.5 active:translate-y-0 transition-all duration-500 mt-2"
                 disabled={isLoggingIn}
               >
                 {isLoggingIn ? (
@@ -126,4 +114,37 @@ const LoginPage = () => {
 
       {/* Right Side */}
       <div className="hidden lg:flex items-center justify-center relative animate-fade-in">
-        <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-sm border-l
+        <div className="absolute inset-0 bg-white/[0.02] backdrop-blur-sm border-l border-white/5" />
+        <div className="relative z-10 w-full h-full">
+          <AuthImagePattern
+            title={"Welcome back!"}
+            subtitle={"Sign in to continue your conversations and catch up with your messages."}
+          />
+        </div>
+      </div>
+
+      <style>{`
+        @keyframes blob {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -40px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+        .animate-blob { animation: blob 10s infinite ease-in-out; }
+
+        @keyframes fadeInUp {
+          0% { opacity: 0; transform: translateY(16px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up { animation: fadeInUp 0.6s ease-out both; }
+
+        @keyframes fadeIn {
+          0% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+        .animate-fade-in { animation: fadeIn 1s ease-out both; }
+      `}</style>
+    </div>
+  );
+};
+
+export default LoginPage;
