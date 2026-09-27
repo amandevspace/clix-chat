@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 
 // Option A: image lives in /public (e.g. public/bg-wave.jpg) — no import needed:
-const BG_IMAGE = "/bg-wave.jpg";
+const BG_IMAGE = "/bg-wave.png";
 
 // Option B: image lives in src/assets — comment out the line above and use this instead:
 // import BG_IMAGE from "../assets/bg-wave.jpg";
